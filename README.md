@@ -5,7 +5,7 @@
 This project is an implementation of the paper “Interactive Architectural Modeling with Procedural Extrusions” [1]. User can use this tool to construct 3D building models from 2D inputs, i.e. polygons and poly lines.
 ## 2. UI 
 The UI consists of 3 Views: Plan Edit, Profile Edit and Preview. The user draws the ground plan in plan edit and profiles associated to the plan in the profile edit. The system automatically generates the corresponding 3D model. An example is shown in Fig. 1.
-
+![Fig 1](pics/UI.png)
 
 Figure 1 The UI. From left to right are: Plan Edit, Profile Edit and Preview
 ### 2.1 Plan Edit
@@ -42,7 +42,7 @@ The class Editor also checks whether the validity of the input.
 The class PlanData stores the cross-section data when doing the sweep plane algorithm, which will be discussed shortly. PlanData is a doubly linked list of corners. Each corner has a pointer to the next corner and the previous corner (assuming counter-clockwise order) and a pointer to its previous and next edges, Fig. 3. At the beginning of the algorithm the plan data structure encodes the input plan. During the sweep the data structure is updated to encode any changes to the active plan.
 
 Figure 3 PlanData
-
+![Fig 3](pics/planData.png)
 ### 3.4 class Extrusion
 This is the most important class. It extrudes the input plan using a sweep plane algorithm. At each height of the sweep plane a 2D cross-section through the building is another 2D plan. This movement and the implicitly defined geometry are straightforward until an event occurs. During events, it processes modifications to the active plan.
 The most important events are Generalized intersection event and edge direction event. Generalized intersection event is processed using the construction and handling of chains, which are composed of the involved edges in the intersection event. Edge direction event happens when the profile changes the direction. 
